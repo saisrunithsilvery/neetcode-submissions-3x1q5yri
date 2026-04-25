@@ -1,0 +1,20 @@
+class Solution:
+    def rotate(self, matrix: List[List[int]]) -> None:
+        l, r = 0, len(matrix) - 1
+
+        while(l <= r):
+            for i in range(r-l):
+                top = l
+                bottom = r
+
+                temp = matrix[top][l+i]
+                matrix[top][l+i] = matrix[r-i][l]
+                matrix[r-i][l] = matrix[bottom][r-i]
+                matrix[bottom][r-i] = matrix[l+i][r]
+                matrix[l+i][r]= temp
+            l +=1
+            r -=1    
+
+
+
+            
